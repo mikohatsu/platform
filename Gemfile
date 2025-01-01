@@ -43,6 +43,13 @@ gem "thruster", require: false
 # CORS 지원을 위한 gem
 gem 'rack-cors'
 
+# Add Webpacker
+# gem 'webpacker'
+
+# 대신 이것들을 추가
+gem 'jsbundling-rails'
+gem 'cssbundling-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

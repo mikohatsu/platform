@@ -1,6 +1,6 @@
-@import './common.scss';
+@use './common';
 
-// 전역 리셋 스타일
+// 전역 스타일
 * {
   margin: 0;
   padding: 0;
