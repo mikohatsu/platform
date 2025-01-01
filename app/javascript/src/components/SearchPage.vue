@@ -43,10 +43,9 @@ export default {
     async handleSearch() {
       if (this.searchQuery.trim()) {
         try {
-          const response = await fetch(`/sj_excel/search/searches?q=${encodeURIComponent(this.searchQuery)}`)
-          const data = await response.json()
-          console.log('검색 결과:', data)
+          const response = await fetch(`/excel/search/searches?q=${encodeURIComponent(this.searchQuery)}`)
           // 검색 결과 처리
+          const data = await response.json()
         } catch (error) {
           console.error('검색 중 오류 발생:', error)
         }
