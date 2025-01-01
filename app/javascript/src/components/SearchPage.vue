@@ -43,7 +43,7 @@ export default {
     async handleSearch() {
       if (this.searchQuery.trim()) {
         try {
-          const response = await fetch(`/api/v1/searches?q=${encodeURIComponent(this.searchQuery)}`)
+          const response = await fetch(`/sj_excel/search/searches?q=${encodeURIComponent(this.searchQuery)}`)
           const data = await response.json()
           console.log('검색 결과:', data)
           // 검색 결과 처리
