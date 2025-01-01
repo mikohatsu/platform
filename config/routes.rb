@@ -11,4 +11,19 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  Rails.application.routes.draw do
+    root 'application#index'
+  end
+
+  # API 엔드포인트
+  namespace :sj_excel do
+    namespace :v1 do
+      resources :searches, only: [:index] # 검색 API
+      # 다른 API 엔드포인트들...
+    end
+  end
+
+  # Vue 라우터를 위한 catch-all 라우트
+  root 'platform#index'
+  get '/*path', to: 'platform#index'
 end

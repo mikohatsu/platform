@@ -32,3 +32,21 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+node_modules
+.DS_Store
+/dist
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

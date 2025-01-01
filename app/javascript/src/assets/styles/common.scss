@@ -1,0 +1,149 @@
+// Layout
+.l-main {
+  padding: 2rem;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.l-search {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15vh;
+  background: white;
+}
+
+// Components
+.c-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.c-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.c-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    color: #4285f4;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  &__description {
+    color: #666;
+    line-height: 1.5;
+  }
+}
+
+.c-search {
+  width: 100%;
+  max-width: 800px;
+  padding: 0 2rem;
+
+  &__logo {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+
+  &__home-link {
+    color: #4285f4;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__box {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 15px 50px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4285f4;
+  }
+
+  &__clear {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    cursor: pointer;
+    
+    &:hover {
+      color: #666;
+    }
+  }
+}
+
+// Buttons
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+
+  &--primary {
+    background-color: #4285f4;
+    color: white;
+
+    &:hover {
+      background-color: #357abd;
+    }
+  }
+} 
