@@ -4522,14 +4522,6 @@ esbuild-plugin-vue3@^0.4.2:
     esbuild "^0.14.8"
     typescript "^4.7.4"
 
-esbuild-plugin-vue@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.npmjs.org/esbuild-plugin-vue/-/esbuild-plugin-vue-0.2.4.tgz"
-  integrity sha512-1noq1Tnnv4WAgdt5UROuNNIwQ7ppE5jlLB2MQD+XdzgprmOksGNTZlAEyYYF8oPMkq0qk1GB8KJJMTr2aE2Nzg==
-  dependencies:
-    hash-sum "^2.0.0"
-    resolve-from "^5.0.0"
-
 esbuild-sass-plugin@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/esbuild-sass-plugin/-/esbuild-sass-plugin-3.3.1.tgz#74d096127bff10072042de30119235f276655566"
@@ -9238,20 +9230,9 @@ sass-loader@^16.0.4:
   dependencies:
     neo-async "^2.6.2"
 
-sass@^1.38.0, sass@^1.71.1:
+sass@^1.38.0, sass@^1.71.1, sass@^1.83.0:
   version "1.83.0"
   resolved "https://registry.npmjs.org/sass/-/sass-1.83.0.tgz"
-  integrity sha512-qsSxlayzoOjdvXMVLkzF84DJFc2HZEL/rFyGIKbbilYtAvlCxyuzUeff9LawTn4btVnLKg75Z8MMr1lxU1lfGw==
-  dependencies:
-    chokidar "^4.0.0"
-    immutable "^5.0.2"
-    source-map-js ">=0.6.2 <2.0.0"
-  optionalDependencies:
-    "@parcel/watcher" "^2.4.1"
-
-sass@^1.83.0:
-  version "1.83.0"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.83.0.tgz#e36842c0b88a94ed336fd16249b878a0541d536f"
   integrity sha512-qsSxlayzoOjdvXMVLkzF84DJFc2HZEL/rFyGIKbbilYtAvlCxyuzUeff9LawTn4btVnLKg75Z8MMr1lxU1lfGw==
   dependencies:
     chokidar "^4.0.0"
