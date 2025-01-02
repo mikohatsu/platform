@@ -98,4 +98,11 @@ Rails.application.configure do
 
   # 애셋 다이제스트 사용
   config.assets.digest = true
+
+  # assets 압축
+  config.assets.css_compressor = nil  # sass-rails가 처리하도록
+  config.assets.js_compressor = :terser
+
+  # 캐싱 활성화
+  config.cache_classes = true
 end
