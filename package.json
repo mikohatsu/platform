@@ -5,7 +5,8 @@
   "scripts": {
     "build": "node config/esbuild.config.js",
     "watch": "node config/esbuild.config.js --watch",
-    "dev": "node config/esbuild.config.js --watch"
+    "dev": "node config/esbuild.config.js --watch",
+    "build:css": "sass .\\app\\assets\\stylesheets\\application.sass.scss:.\\app\\assets\\builds\\application.css --no-source-map --load-path=node_modules"
   },
   "dependencies": {
     "@rails/webpacker": "5.4.4",
@@ -37,6 +38,7 @@
     "esbuild-sass-plugin": "^3.3.1",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "pug": "^3.0.3",
     "sass": "^1.83.0",
     "sass-loader": "^16.0.4",
     "style-loader": "^4.0.0",

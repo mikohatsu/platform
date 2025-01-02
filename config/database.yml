@@ -8,8 +8,8 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: test
+  username: admin
+  password: mikohatsu97
   host: sj-platformdb.cna6i44im49u.ap-southeast-2.rds.amazonaws.com
 
 development:
