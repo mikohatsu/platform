@@ -6,7 +6,7 @@
     "build": "node config/esbuild.config.js",
     "watch": "node config/esbuild.config.js --watch",
     "dev": "node config/esbuild.config.js --watch",
-    "build:css": "sass .\\app\\assets\\stylesheets\\application.sass.scss:.\\app\\assets\\builds\\application.css --no-source-map --load-path=node_modules"
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
   },
   "dependencies": {
     "@rails/webpacker": "5.4.4",
