@@ -6,55 +6,54 @@ const sassPlugin = require('esbuild-sass-plugin').sassPlugin
 const isWatch = process.argv.includes('--watch')
 const isProd = process.env.NODE_ENV === 'production'
 
+// CSS 파일 생성을 위한 별도의 빌드 설정
+const cssConfig = {
+  entryPoints: ['app/javascript/src/assets/styles/main.scss'],
+  bundle: true,
+  outfile: 'app/assets/builds/application.css',
+  loader: {
+    '.scss': 'css',
+    '.css': 'css'
+  },
+  plugins: [
+    sassPlugin({
+      type: 'css',
+      sourceMap: !isProd
+    })
+  ]
+}
+
+// 메인 설정
 const config = {
-  entryPoints: [
-    'app/javascript/application.js',
-    'app/javascript/src/assets/styles/main.scss'
-  ],
+  entryPoints: ['app/javascript/application.js'],
   bundle: true,
   outdir: path.join(process.cwd(), 'app/assets/builds'),
   absWorkingDir: path.join(process.cwd()),
   publicPath: '/assets',
-  minify: isProd,
-  sourcemap: !isProd,
-  plugins: [
-    vuePlugin(),
-    sassPlugin({
-      type: 'css',
-      outFile: path.join(process.cwd(), 'app/assets/builds/application.css'),
-      loadPaths: ['app/javascript', 'node_modules'],
-      sourceMap: !isProd,
-      outputStyle: isProd ? 'compressed' : 'expanded'
-    })
-  ],
+  plugins: [vuePlugin()],
   loader: { 
     '.png': 'dataurl', 
     '.svg': 'text',
-    '.vue': 'js',
-    '.scss': 'css',
-    '.css': 'css'
+    '.vue': 'js'
   },
   define: {
     'process.env.NODE_ENV': isProd ? '"production"' : '"development"'
   },
   platform: 'browser',
-  format: 'iife',
-  metafile: true,
-  splitting: false,
-  write: true
+  format: 'iife'
 }
 
+// 빌드 실행
 if (isWatch) {
-  esbuild.context(config).then(context => {
-    context.watch()
+  Promise.all([
+    esbuild.context(config).then(context => context.watch()),
+    esbuild.context(cssConfig).then(context => context.watch())
+  ]).then(() => {
     console.log('Watching for changes...')
   })
 } else {
-  esbuild.build(config)
-    .then(result => {
-      if (result.metafile) {
-        console.log('Build completed:', result.metafile.outputs)
-      }
-    })
-    .catch(() => process.exit(1))
+  Promise.all([
+    esbuild.build(config),
+    esbuild.build(cssConfig)
+  ]).catch(() => process.exit(1))
 } 
