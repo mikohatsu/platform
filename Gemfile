@@ -50,6 +50,9 @@ gem 'rack-cors'
 gem 'jsbundling-rails'
 gem 'cssbundling-rails'
 
+# Add MySQL support
+gem 'mysql2'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -73,5 +76,5 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn'
+  # gem 'unicorn'
 end
