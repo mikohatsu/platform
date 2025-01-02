@@ -7,7 +7,10 @@ const isWatch = process.argv.includes('--watch')
 const isProd = process.env.NODE_ENV === 'production'
 
 const config = {
-  entryPoints: ['app/javascript/application.js'],
+  entryPoints: [
+    'app/javascript/application.js',
+    'app/javascript/src/assets/styles/main.scss'
+  ],
   bundle: true,
   outdir: path.join(process.cwd(), 'app/assets/builds'),
   absWorkingDir: path.join(process.cwd()),
@@ -21,7 +24,7 @@ const config = {
       outFile: path.join(process.cwd(), 'app/assets/builds/application.css'),
       loadPaths: ['app/javascript', 'node_modules'],
       sourceMap: !isProd,
-      outputStyle: 'compressed',
+      outputStyle: isProd ? 'compressed' : 'expanded'
     })
   ],
   loader: { 
@@ -29,16 +32,16 @@ const config = {
     '.svg': 'text',
     '.vue': 'js',
     '.scss': 'css',
-    '.css': 'css',
-    '.sass': 'css'
+    '.css': 'css'
   },
   define: {
     'process.env.NODE_ENV': isProd ? '"production"' : '"development"'
   },
   platform: 'browser',
   format: 'iife',
-  assetNames: '[name]-[hash]',
-  metafile: true
+  metafile: true,
+  splitting: false,
+  write: true
 }
 
 if (isWatch) {
@@ -47,5 +50,11 @@ if (isWatch) {
     console.log('Watching for changes...')
   })
 } else {
-  esbuild.build(config).catch(() => process.exit(1))
+  esbuild.build(config)
+    .then(result => {
+      if (result.metafile) {
+        console.log('Build completed:', result.metafile.outputs)
+      }
+    })
+    .catch(() => process.exit(1))
 } 
