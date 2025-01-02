@@ -2,7 +2,7 @@
 .l-search
   .c-search
     .c-search__logo
-      router-link.c-search__home-link(to="/") Search Files
+      router-link.c-search__home-link(to="/search") Search Files
     
     .c-search__container
       .c-search__box
