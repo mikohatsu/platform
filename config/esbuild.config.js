@@ -13,10 +13,7 @@ const config = {
   publicPath: '/assets',
   plugins: [
     vuePlugin(),
-    sassPlugin({
-      type: 'css',
-      outFile: path.join(process.cwd(), 'public/assets/application.css'),
-    })
+    sassPlugin()
   ],
   loader: {
     '.png': 'dataurl',
