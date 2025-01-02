@@ -12,13 +12,15 @@ const config = {
   outdir: path.join(process.cwd(), 'app/assets/builds'),
   absWorkingDir: path.join(process.cwd()),
   publicPath: '/assets',
-  minify: isProd,
+  minify: false,
+  sourcemap: true,
   plugins: [
     vuePlugin(),
     sassPlugin({
       type: 'css',
-      sourceMap: !isProd,
-      loadPaths: ['app/javascript', 'node_modules']
+      sourceMap: true,
+      loadPaths: ['app/javascript', 'node_modules'],
+      outputStyle: 'expanded'
     })
   ],
   loader: { 
@@ -29,17 +31,18 @@ const config = {
     '.css': 'css'
   },
   define: {
-    'process.env.NODE_ENV': isProd ? '"production"' : '"development"'
+    'process.env.NODE_ENV': '"development"'
   },
   platform: 'browser',
   format: 'iife'
 }
 
-if (isWatch) {
-  esbuild.context(config).then(context => {
+esbuild.context(config).then(context => {
+  if (isWatch) {
     context.watch()
     console.log('Watching for changes...')
-  })
-} else {
-  esbuild.build(config).catch(() => process.exit(1))
-} 
+  } else {
+    context.rebuild()
+    context.dispose()
+  }
+}).catch(() => process.exit(1)) 
