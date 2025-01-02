@@ -24,7 +24,7 @@
     
     .c-search__results(v-if="searchResults")
       .c-search__query(v-if="searchResults.query")
-        | 검색어: {{ searchResults.query }}
+        | 検索結果: {{ searchResults.query }}
 </template>
 
 <script>
@@ -42,12 +42,18 @@ export default {
         try {
           const response = await fetch(`/excel/search/searches?q=${encodeURIComponent(this.searchQuery)}`)
           // 검색 결과 처리
-          await response.json().then(data => {
+          const { status, data } = await response.json()
+          console.log(status, data)
+          if(status === 200) {
             this.searchResults = data
-          })
+          } else {
+            throw new Error("Bad Request")
+          }
         } catch (error) {
           console.error('검색 중 오류 발생:', error)
         }
+      } else {
+        alert("検索語を入力してください!!")
       }
     },
     clearSearch() {
