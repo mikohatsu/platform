@@ -16,11 +16,7 @@ const config = {
   sourcemap: !isProd,
   plugins: [
     vuePlugin(),
-    sassPlugin({
-      type: 'style',
-      cssImports: true,
-      loadPaths: ['app/assets/stylesheets', 'node_modules']
-    })
+    sassPlugin()
   ],
   loader: { 
     '.png': 'dataurl', 
