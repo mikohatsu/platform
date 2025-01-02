@@ -86,4 +86,16 @@ Rails.application.configure do
   #
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  # 정적 파일 제공 활성화
+  config.public_file_server.enabled = true
+  
+  # 애셋 파이프라인 활성화
+  config.assets.compile = true
+
+  # 애셋 디버그 모드 비활성화
+  config.assets.debug = false
+
+  # 애셋 다이제스트 사용
+  config.assets.digest = true
 end
