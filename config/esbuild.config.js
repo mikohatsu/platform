@@ -2,6 +2,7 @@ const path = require('path');
 const esbuild = require('esbuild');
 const vuePlugin = require('esbuild-plugin-vue3');
 const sassPlugin = require('esbuild-sass-plugin').sassPlugin;
+const pugPlugin = require('esbuild-plugin-pug');
 
 const isWatch = process.argv.includes('--watch');
 
@@ -13,7 +14,8 @@ const config = {
   publicPath: '/assets',
   plugins: [
     vuePlugin(),
-    sassPlugin()
+    sassPlugin(),
+    pugPlugin()
   ],
   loader: {
     '.png': 'dataurl',

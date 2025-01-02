@@ -11,6 +11,7 @@
   "dependencies": {
     "@rails/webpacker": "5.4.4",
     "core-js": "^3.8.3",
+    "esbuild-plugin-pug": "^0.0.8",
     "esbuild-plugin-vue3": "^0.4.2",
     "esbuild-sass-plugin": "^3.3.1",
     "vue": "^3.5.13",
@@ -39,6 +40,7 @@
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "pug": "^3.0.3",
+    "pug-plain-loader": "^1.1.0",
     "sass": "^1.83.0",
     "sass-loader": "^16.0.4",
     "style-loader": "^4.0.0",

@@ -1,21 +1,16 @@
-<template>
-  <div class="l-main">
-    <h1 class="c-title">Platform Name</h1>
-    <div class="c-grid">
-      <router-link 
-        v-for="(item, index) in menuItems" 
-        :key="index"
-        :to="item.path"
-        class="c-card"
-      >
-        <div class="c-card__icon">
-          <i :class="item.icon"></i>
-        </div>
-        <h2 class="c-card__title">{{ item.title }}</h2>
-        <p class="c-card__description">{{ item.description }}</p>
-      </router-link>
-    </div>
-  </div>
+<template lang="pug">
+.l-main
+  h1.c-title そんじぇの遊び場
+  .c-grid
+    router-link.c-card(
+      v-for="(item, index) in menuItems"
+      :key="index"
+      :to="item.path"
+    )
+      .c-card__icon
+        i(:class="item.icon")
+      h2.c-card__title {{ item.title }}
+      p.c-card__description {{ item.description }}
 </template>
 
 <script>
@@ -25,20 +20,20 @@ export default {
     return {
       menuItems: [
         {
-          title: '검색',
-          description: '원하는 정보를 빠르게 찾아보세요',
+          title: 'SUNGLE',
+          description: 'あなたが探したい情報のファイルが検索できます',
           path: '/search',
           icon: 'fas fa-search'
         },
         {
-          title: '컨텐츠 1',
-          description: '첫 번째 컨텐츠 설명',
+          title: 'ポケカAIデュアル',
+          description: 'AIとポケモンカードゲームを楽しんでみましょう',
           path: '/content1',
           icon: 'fas fa-play-circle'
         },
         {
-          title: '컨텐츠 2',
-          description: '두 번째 컨텐츠 설명',
+          title: '単語QUIZ',
+          description: '単語QUIZで日本語と韓国語を勉強してみましょう',
           path: '/content2',
           icon: 'fas fa-book'
         },
@@ -47,4 +42,4 @@ export default {
     }
   }
 }
-</script> 
+</script>

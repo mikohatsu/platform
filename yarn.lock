@@ -4551,9 +4551,16 @@ esbuild-openbsd-64@0.14.54:
   resolved "https://registry.yarnpkg.com/esbuild-openbsd-64/-/esbuild-openbsd-64-0.14.54.tgz#db4c8495287a350a6790de22edea247a57c5d47b"
   integrity sha512-Qyk7ikT2o7Wu76UsvvDS5q0amJvmRzDyVlL0qf5VLsLchjCa1+IAvd8kTBgUxD7VBUUVgItLkk609ZHUc1oCaw==
 
+esbuild-plugin-pug@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/esbuild-plugin-pug/-/esbuild-plugin-pug-0.0.8.tgz#5f2e28a5cc905d6a18a5a2d83c39b39fac53078b"
+  integrity sha512-rdj+pmAl7rLW4A/zo7pJZil3uNg/cxxwoq2LD1S5e0rGc24BprjizftwkqZDobaCn9iMO+WpdfJAOhTUfO74CA==
+  dependencies:
+    pug "^3.0.2"
+
 esbuild-plugin-vue3@^0.4.2:
   version "0.4.2"
-  resolved "https://registry.npmjs.org/esbuild-plugin-vue3/-/esbuild-plugin-vue3-0.4.2.tgz"
+  resolved "https://registry.yarnpkg.com/esbuild-plugin-vue3/-/esbuild-plugin-vue3-0.4.2.tgz#b50c45ea15daaf369a5cc09189aff0a7b1e01e16"
   integrity sha512-edaghOAJY+26uIJVywkT0cyUxWu/oi2+dGe2KePyHAJ9y6hAB4fqNnY5SFpZY9G6knERZo4Nykp/YOcKML06rA==
   dependencies:
     esbuild "^0.14.8"
@@ -8854,6 +8861,13 @@ pug-parser@^6.0.0:
     pug-error "^2.0.0"
     token-stream "1.0.0"
 
+pug-plain-loader@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/pug-plain-loader/-/pug-plain-loader-1.1.0.tgz#59f3b475284871afcd6a18d2ad3318b150fdc533"
+  integrity sha512-1nYgIJLaahRuHJHhzSPODV44aZfb00bO7kiJiMkke6Hj4SVZftuvx6shZ4BOokk50dJc2RSFqNUBOlus0dniFQ==
+  dependencies:
+    loader-utils "^1.1.0"
+
 pug-runtime@^3.0.0, pug-runtime@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npmjs.org/pug-runtime/-/pug-runtime-3.0.1.tgz"
@@ -8871,9 +8885,9 @@ pug-walk@^2.0.0:
   resolved "https://registry.npmjs.org/pug-walk/-/pug-walk-2.0.0.tgz"
   integrity sha512-yYELe9Q5q9IQhuvqsZNwA5hfPkMJ8u92bQLIMcsMxf/VADjNtEYptU+inlufAFYcWdHlwNfZOEnOOQrZrcyJCQ==
 
-pug@^3.0.3:
+pug@^3.0.2, pug@^3.0.3:
   version "3.0.3"
-  resolved "https://registry.npmjs.org/pug/-/pug-3.0.3.tgz"
+  resolved "https://registry.yarnpkg.com/pug/-/pug-3.0.3.tgz#e18324a314cd022883b1e0372b8af3a1a99f7597"
   integrity sha512-uBi6kmc9f3SZ3PXxqcHiUZLmIXgfgWooKWXcwSGwQd2Zi5Rb0bT14+8CJjJgI8AB+nndLaNgHGrcc6bPIB665g==
   dependencies:
     pug-code-gen "^3.0.3"
