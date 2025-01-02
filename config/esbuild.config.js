@@ -16,7 +16,13 @@ const config = {
   sourcemap: !isProd,
   plugins: [
     vuePlugin(),
-    sassPlugin()
+    sassPlugin({
+      type: 'css',
+      outFile: path.join(process.cwd(), 'app/assets/builds/application.css'),
+      loadPaths: ['app/javascript', 'node_modules'],
+      sourceMap: !isProd,
+      outputStyle: 'compressed',
+    })
   ],
   loader: { 
     '.png': 'dataurl', 
