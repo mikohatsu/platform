@@ -5,7 +5,8 @@
   "scripts": {
     "build": "node config/esbuild.config.js",
     "watch": "node config/esbuild.config.js --watch",
-    "dev": "node config/esbuild.config.js --watch"
+    "dev": "node config/esbuild.config.js --watch",
+    "build:css": "node config/esbuild.config.js --css-only"
   },
   "dependencies": {
     "@rails/webpacker": "5.4.4",
