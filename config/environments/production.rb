@@ -90,8 +90,12 @@ Rails.application.configure do
   # 정적 파일 제공 활성화
   config.public_file_server.enabled = true
   
-  # 애셋 파이프라인 활성화
+  # asset pipeline 설정
   config.assets.compile = true
+  config.assets.digest = true
+  
+  # esbuild 출력 디렉토리를 public으로 변경
+  config.assets.paths << Rails.root.join("app/assets/builds")
 
   # 애셋 디버그 모드 비활성화
   config.assets.debug = false
