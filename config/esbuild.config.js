@@ -11,14 +11,11 @@ const cssConfig = {
   entryPoints: ['app/javascript/src/assets/styles/main.scss'],
   bundle: true,
   outfile: 'app/assets/builds/application.css',
-  loader: {
-    '.scss': 'css',
-    '.css': 'css'
-  },
   plugins: [
     sassPlugin({
       type: 'css',
-      sourceMap: !isProd
+      sourceMap: !isProd,
+      loadPaths: ['app/javascript', 'node_modules']
     })
   ]
 }
@@ -30,11 +27,16 @@ const config = {
   outdir: path.join(process.cwd(), 'app/assets/builds'),
   absWorkingDir: path.join(process.cwd()),
   publicPath: '/assets',
-  plugins: [vuePlugin()],
+  plugins: [
+    vuePlugin(),
+    sassPlugin()
+  ],
   loader: { 
     '.png': 'dataurl', 
     '.svg': 'text',
-    '.vue': 'js'
+    '.vue': 'js',
+    '.scss': 'css',
+    '.css': 'css'
   },
   define: {
     'process.env.NODE_ENV': isProd ? '"production"' : '"development"'
