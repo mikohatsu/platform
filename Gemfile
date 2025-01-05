@@ -51,7 +51,7 @@ gem 'jsbundling-rails'
 gem 'cssbundling-rails'
 
 # Add MySQL support
-gem 'mysql2'
+gem 'mysql2', '~> 0.5.6'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -76,5 +76,5 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn'
+#  gem 'unicorn'
 end
