@@ -15,12 +15,24 @@ module Search
     private
 
     def process_search
-    # 실제 검색 처리 로직
-    # 예: 엑셀 파일에서 데이터 검색
+      # 실제 검색 처리 로직
+      # 예: 엑셀 파일에서 데이터 검색
+      search_repository.search(@query)
+    end
+
+    def search_repository
+      @search_repository ||= SearchRepository.new
     end
 
     def format_response(response)
-    # 응답 데이터 포맷팅
+      # 응답 데이터 포맷팅
+      response.map do |result|
+        {
+          id: result.id,
+          result: result.term
+        }
+      end
     end
+
   end
 end

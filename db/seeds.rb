@@ -7,3 +7,22 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# 테스트용 검색어 데이터 생성
+search_terms = [
+  "Ruby on Rails",
+  "Vue.js",
+  "JavaScript",
+  "MySQL",
+  "API Development",
+  "Frontend",
+  "Backend",
+  "Database",
+  "Web Development",
+  "Programming",
+  "ねこ"
+]
+
+search_terms.each do |term|
+  Search::SearchTerm.create!(term: term)
+end

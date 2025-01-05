@@ -8,10 +8,10 @@ module Search
 
     def call
       # 검색 기록 저장
-      # @repository.create(query: @query)
+      @repository.create(term: @query)
       # 실제 검색 수행
-      # @service.execute
-      [:ok, {query: @query}]
+      result = @service.execute
+      [:ok, result]
     end
   end
 end

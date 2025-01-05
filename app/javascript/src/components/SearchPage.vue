@@ -22,9 +22,13 @@
         @click="handleSearch"
       ) 検索
     
-    .c-search__results(v-if="searchResults")
-      .c-search__query(v-if="searchResults.query")
-        | 検索結果: {{ searchResults.query }}
+    .c-search__results(
+      v-for="(id, data) in searchResults"
+      )
+      .c-search__query(
+        style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;"
+      )
+        | 検索結果: {{ id.result }}
 </template>
 
 <script>
@@ -43,9 +47,10 @@ export default {
           const response = await fetch(`/excel/search/searches?q=${encodeURIComponent(this.searchQuery)}`)
           // 검색 결과 처리
           const { status, data } = await response.json()
-          console.log(status, data)
+          
           if(status === 200) {
             this.searchResults = data
+            console.log(this.searchResults)
           } else {
             throw new Error("Bad Request")
           }
